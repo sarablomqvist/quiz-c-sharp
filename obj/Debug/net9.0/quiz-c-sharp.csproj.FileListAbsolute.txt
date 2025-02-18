@@ -1,0 +1,15 @@
+/Users/sarablomqvist/Desktop/Frontendutvecklare/Backend 2/quiz-c-sharp/bin/Debug/net9.0/quiz-c-sharp
+/Users/sarablomqvist/Desktop/Frontendutvecklare/Backend 2/quiz-c-sharp/bin/Debug/net9.0/quiz-c-sharp.deps.json
+/Users/sarablomqvist/Desktop/Frontendutvecklare/Backend 2/quiz-c-sharp/bin/Debug/net9.0/quiz-c-sharp.runtimeconfig.json
+/Users/sarablomqvist/Desktop/Frontendutvecklare/Backend 2/quiz-c-sharp/bin/Debug/net9.0/quiz-c-sharp.dll
+/Users/sarablomqvist/Desktop/Frontendutvecklare/Backend 2/quiz-c-sharp/bin/Debug/net9.0/quiz-c-sharp.pdb
+/Users/sarablomqvist/Desktop/Frontendutvecklare/Backend 2/quiz-c-sharp/obj/Debug/net9.0/quiz-c-sharp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sarablomqvist/Desktop/Frontendutvecklare/Backend 2/quiz-c-sharp/obj/Debug/net9.0/quiz-c-sharp.AssemblyInfoInputs.cache
+/Users/sarablomqvist/Desktop/Frontendutvecklare/Backend 2/quiz-c-sharp/obj/Debug/net9.0/quiz-c-sharp.AssemblyInfo.cs
+/Users/sarablomqvist/Desktop/Frontendutvecklare/Backend 2/quiz-c-sharp/obj/Debug/net9.0/quiz-c-sharp.csproj.CoreCompileInputs.cache
+/Users/sarablomqvist/Desktop/Frontendutvecklare/Backend 2/quiz-c-sharp/obj/Debug/net9.0/quiz-c-sharp.sourcelink.json
+/Users/sarablomqvist/Desktop/Frontendutvecklare/Backend 2/quiz-c-sharp/obj/Debug/net9.0/quiz-c-sharp.dll
+/Users/sarablomqvist/Desktop/Frontendutvecklare/Backend 2/quiz-c-sharp/obj/Debug/net9.0/refint/quiz-c-sharp.dll
+/Users/sarablomqvist/Desktop/Frontendutvecklare/Backend 2/quiz-c-sharp/obj/Debug/net9.0/quiz-c-sharp.pdb
+/Users/sarablomqvist/Desktop/Frontendutvecklare/Backend 2/quiz-c-sharp/obj/Debug/net9.0/quiz-c-sharp.genruntimeconfig.cache
+/Users/sarablomqvist/Desktop/Frontendutvecklare/Backend 2/quiz-c-sharp/obj/Debug/net9.0/ref/quiz-c-sharp.dll
