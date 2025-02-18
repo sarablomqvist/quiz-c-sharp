@@ -4,13 +4,14 @@
     {
         QuizManager manager = new QuizManager();
 
+        Console.WriteLine("\n----QUIZ----\n");
+        Console.WriteLine("1. Skapa quiz");
+        Console.WriteLine("2. Spela quiz");
+        Console.WriteLine("3. Avsluta\n");
+        Console.WriteLine("Välj ett alternativ:");
+
         while (true)
         {
-            Console.WriteLine("----QUIZ----");
-            Console.WriteLine("1. Skapa quiz");
-            Console.WriteLine("2. Spela quiz");
-            Console.WriteLine("3. Avsluta");
-            Console.WriteLine("Välj ett alternativ:");
 
             string? choice = Console.ReadLine();
 
