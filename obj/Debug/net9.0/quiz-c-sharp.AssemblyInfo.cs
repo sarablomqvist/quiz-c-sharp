@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("quiz-c-sharp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5972cdcba17313c2f8d6411d9ba54cf5c13fc41c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+318d56abf0dfdee0825d098689a40f3bd95134cd")]
 [assembly: System.Reflection.AssemblyProductAttribute("quiz-c-sharp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("quiz-c-sharp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
