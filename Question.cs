@@ -1,7 +1,16 @@
 class Question
 {
-    static void Question1()
+    public string Text { get; set; }
+    public string Answer { get; set; }
+
+    public Question(string text, string answer)
     {
-        Console.WriteLine("Hello, World!");
+        Text = text;
+        Answer = answer;
+    }
+
+    public bool CheckAnswer(string input)
+    {
+        return input.Trim().Equals(Answer, StringComparison.OrdinalIgnoreCase);
     }
 }
