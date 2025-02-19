@@ -17,7 +17,15 @@ class QuizManager
             Console.WriteLine("Ange en fråga eller 'klar' för att avsluta");
             string? question = Console.ReadLine();
 
-            if (question?.ToLower() == "klar") break;
+            if (question?.ToLower() == "klar")
+            {
+                Console.WriteLine("\n1. Spela quiz");
+                Console.WriteLine("2. Skapa ett nytt quiz");
+                Console.WriteLine("3. Avsluta");
+                Console.WriteLine("Välj ett alternativ:");
+                break;
+            }
+
 
             Console.WriteLine("Ange rätt svar: ");
             string? answer = Console.ReadLine();
@@ -25,6 +33,11 @@ class QuizManager
             quiz.AddQuestion(question, answer);
 
             Console.WriteLine("Quiz " + name + " har skapats.");
+
+            Console.WriteLine("\n1. Skapa ett nytt quiz");
+            Console.WriteLine("2. Spela quiz");
+            Console.WriteLine("3. Avsluta");
+            Console.WriteLine("Välj ett alternativ:\n");
         }
 
     }
@@ -43,10 +56,13 @@ class QuizManager
             Console.WriteLine($"{i + 1}. {quizzes[i].Name}");
         }
 
-        Console.WriteLine("Välj ett quiz (völj ett nummer): ");
-        if (int.TryParse(Console.ReadLine(), out int choice) && choice > 0 && choice <= quizzes.Count){
+        Console.WriteLine("Välj ett quiz (välj ett nummer): ");
+        if (int.TryParse(Console.ReadLine(), out int choice) && choice > 0 && choice <= quizzes.Count)
+        {
             quizzes[choice - 1].Start();
-        } else{
+        }
+        else
+        {
             Console.WriteLine("Försök igen.");
         }
     }
