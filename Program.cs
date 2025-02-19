@@ -26,6 +26,7 @@
             else if (choice == "3")
             {
                 Console.WriteLine("Avslutar quiz");
+                break;
             }
             else
             {

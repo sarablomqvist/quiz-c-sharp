@@ -1,3 +1,5 @@
+using System.Security.Cryptography.X509Certificates;
+
 class QuizManager
 {
 
@@ -12,8 +14,10 @@ class QuizManager
 
         while (true)
         {
-            Console.WriteLine("Ange en fråga:");
+            Console.WriteLine("Ange en fråga eller 'klar' för att avsluta");
             string? question = Console.ReadLine();
+
+            if (question?.ToLower() == "klar") break;
 
             Console.WriteLine("Ange rätt svar: ");
             string? answer = Console.ReadLine();
@@ -40,5 +44,10 @@ class QuizManager
         }
 
         Console.WriteLine("Välj ett quiz (völj ett nummer): ");
+        if (int.TryParse(Console.ReadLine(), out int choice) && choice > 0 && choice <= quizzes.Count){
+            quizzes[choice - 1].Start();
+        } else{
+            Console.WriteLine("Försök igen.");
+        }
     }
 }

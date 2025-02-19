@@ -33,7 +33,7 @@ class Quiz
             {
                 Console.WriteLine($"Fel.. Rätt svar är {q.Answer}");
             }
-            Console.WriteLine($"Quiz klart! Du fick  + {score}/{Questions.Count} + poäng.");
         }
+        Console.WriteLine($"Quiz klart! Du fick  + {score}/{Questions.Count} + poäng.");
     }
 }
