@@ -1,4 +1,3 @@
-using System.Security.Cryptography.X509Certificates;
 
 class QuizManager
 {
@@ -19,10 +18,10 @@ class QuizManager
 
             if (question?.ToLower() == "klar")
             {
-                Console.WriteLine("\n1. Spela quiz");
-                Console.WriteLine("2. Skapa ett nytt quiz");
+                Console.WriteLine("\n1. Skapa ett nytt quiz");
+                Console.WriteLine("2. Spela quiz");
                 Console.WriteLine("3. Avsluta");
-                Console.WriteLine("Välj ett alternativ:");
+                Console.WriteLine("Välj ett alternativ:\n");
                 break;
             }
 
@@ -32,12 +31,7 @@ class QuizManager
 
             quiz.AddQuestion(question, answer);
 
-            Console.WriteLine("Quiz " + name + " har skapats.");
-
-            Console.WriteLine("\n1. Skapa ett nytt quiz");
-            Console.WriteLine("2. Spela quiz");
-            Console.WriteLine("3. Avsluta");
-            Console.WriteLine("Välj ett alternativ:\n");
+            Console.WriteLine($"Quiz {name} har skapats med {quiz.Questions.Count} frågor.");
         }
 
     }
