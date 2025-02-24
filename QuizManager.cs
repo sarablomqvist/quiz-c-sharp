@@ -5,11 +5,18 @@ class QuizManager
     public List<Quiz> quizzes = new List<Quiz>();
     public void CreateQuiz()
     {
-        Console.WriteLine("Ange namn på Quiz:");
-        string? name = Console.ReadLine();
+        Quiz quiz;
 
-        Quiz quiz = new Quiz(name);
-        quizzes.Add(quiz);
+        using (var db = new QuizDbContext())
+        {
+
+            Console.WriteLine("Ange namn på Quiz:");
+            string? name = Console.ReadLine();
+
+            quiz = new Quiz { Name = name };
+            db.Quizzes.Add(quiz);
+            db.SaveChanges();
+        }
 
         while (true)
         {
@@ -29,11 +36,30 @@ class QuizManager
             Console.WriteLine("Ange rätt svar: ");
             string? answer = Console.ReadLine();
 
-            quiz.AddQuestion(question, answer);
+            using (var db = new QuizDbContext())
+            {
+                var existingQuiz = db.Quizzes.FirstOrDefault(q => q.Name == quiz.Name);
 
-            Console.WriteLine($"Quiz {name} har skapats med {quiz.Questions.Count} frågor.");
+                if (existingQuiz != null)
+                {
+                    Question newQuestion = new Question
+                    {
+                        Text = question,
+                        Answer = answer,
+                        Quiz = existingQuiz
+                    };
+
+                    db.Questions.Add(newQuestion);
+                    db.SaveChanges();
+
+                    Console.WriteLine($"Fråga '{question}' har lagts till i {quiz.Name}.");
+                }
+                else
+                {
+                    Console.WriteLine("Fel, kunde inte hitta i databasen.");
+                };
+            }
         }
-
     }
 
     public void PlayQuiz()
