@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Data;
 
 class Quiz
 {
@@ -43,5 +44,51 @@ class Quiz
             }
         }
         Console.WriteLine($"Quiz klart! Du fick {score}/{Questions.Count} poäng.");
+        SaveHighscore(score, this.Id);
+        ShowHighscores();
     }
+
+    public void SaveHighscore(int score, int quizId)
+    {
+        using (var db = new QuizDbContext())
+        {
+            var highscore = new Highscore
+            {
+                Score = score,
+                QuizId = quizId
+            };
+
+            db.Highscores.Add(highscore);
+            db.SaveChanges();
+
+            Console.WriteLine($"Ditt resultat: {score} poäng har sparats i highscore!");
+        }
+    }
+
+    public void ShowHighscores()
+    {
+        using (var db = new QuizDbContext())
+        {
+            var highscores = db.Highscores
+            .Where(h => h.QuizId == this.Id)
+            .OrderByDescending(h => h.Score)
+            .Take(10)
+            .ToList();
+
+            if (highscores.Any())
+            {
+                Console.WriteLine("---Topplista för highscore!---");
+                foreach (var highscore in highscores)
+                {
+                    Console.WriteLine($"Poäng: {highscore.Score}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Inga highscore finns än.");
+            }
+        }
+    }
+
+
 }

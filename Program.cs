@@ -7,7 +7,8 @@
         Console.WriteLine("\n----QUIZ----\n");
         Console.WriteLine("1. Skapa quiz");
         Console.WriteLine("2. Spela quiz");
-        Console.WriteLine("3. Avsluta\n");
+        Console.WriteLine("3. Hämta quiz från databasen");
+        Console.WriteLine("4. Avsluta\n");
         Console.WriteLine("Välj ett alternativ:");
 
         while (true)
@@ -25,12 +26,16 @@
             }
             else if (choice == "3")
             {
+                manager.GetQuizFromDatabase();
+            }
+            else if (choice == "4")
+            {
                 Console.WriteLine("Avslutar quiz");
                 break;
             }
             else
             {
-                Console.WriteLine("Välj en siffra mellan 1-3.");
+                Console.WriteLine("Välj en siffra mellan 1-4.");
             }
         }
     }
