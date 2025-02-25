@@ -8,7 +8,8 @@
         Console.WriteLine("1. Skapa quiz");
         Console.WriteLine("2. Spela quiz");
         Console.WriteLine("3. Hämta quiz från databasen");
-        Console.WriteLine("4. Avsluta\n");
+        Console.WriteLine("4. Visa highscore");
+        Console.WriteLine("5. Avsluta\n");
         Console.WriteLine("Välj ett alternativ:");
 
         while (true)
@@ -29,6 +30,10 @@
                 manager.GetQuizFromDatabase();
             }
             else if (choice == "4")
+           {
+                Console.WriteLine("visa highscore");
+            }
+            else if (choice == "5")
             {
                 Console.WriteLine("Avslutar quiz");
                 break;
