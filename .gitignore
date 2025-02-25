@@ -1,0 +1,14 @@
+# Alternative (more explicit)
+**/bin/
+**/obj/
+
+# Ignore Visual Studio specific files
+.vs/
+*.user
+*.suo
+*.cache
+*.pdb
+*.exe
+*.dll
+*.log
+*.vscode/
