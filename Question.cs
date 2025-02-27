@@ -21,8 +21,8 @@ class Question
         Answer = answer;
     }
 
-    public bool CheckAnswer(string input)
+    public bool CheckAnswer(string response)
     {
-        return input.Trim().Equals(Answer, StringComparison.OrdinalIgnoreCase);
+        return response.Trim().Equals(Answer.Trim(), StringComparison.OrdinalIgnoreCase);
     }
 }

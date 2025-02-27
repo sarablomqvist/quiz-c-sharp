@@ -1,9 +1,7 @@
 using System.ComponentModel.DataAnnotations;
-using System.Data;
 
 class Quiz
 {
-
     [Key]
     public int Id { get; set; }
     public string Name { get; set; }
@@ -25,6 +23,9 @@ class Quiz
 
     public void Start()
     {
+        QuizManager manager = new QuizManager();
+        manager.ShowHighscoresForQuiz(this.Id);
+
         Console.WriteLine("Startar quiz: " + Name);
         int score = 0;
 
@@ -44,18 +45,23 @@ class Quiz
             }
         }
         Console.WriteLine($"Quiz klart! Du fick {score}/{Questions.Count} poäng.");
-        SaveHighscore(score, this.Id);
-        ShowHighscores();
+        SaveHighscore(score);
     }
 
-    public void SaveHighscore(int score, int quizId)
+    public void SaveHighscore(int score)
     {
         using (var db = new QuizDbContext())
         {
+            if (this.Id == 0)
+            {
+                Console.WriteLine("Fel: Highscore kan inte sparas korrekt.");
+                return;
+            }
+
             var highscore = new Highscore
             {
                 Score = score,
-                QuizId = quizId
+                QuizId = this.Id
             };
 
             db.Highscores.Add(highscore);
@@ -64,31 +70,4 @@ class Quiz
             Console.WriteLine($"Ditt resultat: {score} poäng har sparats i highscore!");
         }
     }
-
-    public void ShowHighscores()
-    {
-        using (var db = new QuizDbContext())
-        {
-            var highscores = db.Highscores
-            .Where(h => h.QuizId == this.Id)
-            .OrderByDescending(h => h.Score)
-            .Take(10)
-            .ToList();
-
-            if (highscores.Any())
-            {
-                Console.WriteLine("---Topplista för highscore!---");
-                foreach (var highscore in highscores)
-                {
-                    Console.WriteLine($"Poäng: {highscore.Score}");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Inga highscore finns än.");
-            }
-        }
-    }
-
-
 }

@@ -17,7 +17,6 @@ class QuizManager
     {
         using (var db = new QuizDbContext())
         {
-            db.Database.EnsureCreated();
 
             Console.WriteLine("Ange namn på Quiz:");
             string? name = Console.ReadLine();
@@ -100,7 +99,6 @@ class QuizManager
     {
         using (var db = new QuizDbContext())
         {
-            db.Database.EnsureCreated();
             Console.WriteLine("Hämtar quiz från databasen..");
             var quizzesFromDb = db.Quizzes.Include(q => q.Questions).ToList();
 
@@ -124,4 +122,59 @@ class QuizManager
         }
     }
 
+    public void ShowHighscoresForQuiz(int quizId)
+    {
+        using (var db = new QuizDbContext())
+        {
+            Console.WriteLine($"Hämtar highscore för QuizId: {quizId}");
+
+            var highscores = db.Highscores
+                .Where(h => h.QuizId == quizId)
+                .OrderByDescending(h => h.Score)
+                .Take(10)
+                .ToList();
+
+            if (highscores.Any())
+            {
+                Console.WriteLine("---Topplista för highscore!---");
+                foreach (var highscore in highscores)
+                {
+                    Console.WriteLine($"Poäng: {highscore.Score}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Inga highscore finns än.");
+            }
+        }
+    }
+
+    public void ShowHighscores()
+    {
+        using (var db = new QuizDbContext())
+        {
+            var quizzes = db.Quizzes.ToList();
+            if (!quizzes.Any())
+            {
+                Console.WriteLine("Inga quiz finns i databasen.");
+                return;
+            }
+
+            Console.WriteLine("Välj ett quiz att visa highscore för:");
+            for (int i = 0; i < quizzes.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {quizzes[i].Name}");
+            }
+
+            if (int.TryParse(Console.ReadLine(), out int quizChoice) && quizChoice > 0 && quizChoice <= quizzes.Count)
+            {
+                int quizId = quizzes[quizChoice - 1].Id;
+                ShowHighscoresForQuiz(quizId);
+            }
+            else
+            {
+                Console.WriteLine("Ogiltigt val.");
+            }
+        }
+    }
 }
