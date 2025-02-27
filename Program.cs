@@ -3,6 +3,7 @@
     static void Main()
     {
         QuizManager manager = new QuizManager();
+        Quiz highscore = new Quiz();
 
         Console.WriteLine("\n----QUIZ----\n");
         Console.WriteLine("1. Skapa quiz");
@@ -31,7 +32,7 @@
             }
             else if (choice == "4")
            {
-                Console.WriteLine("visa highscore");
+                highscore.ShowHighscores();
             }
             else if (choice == "5")
             {

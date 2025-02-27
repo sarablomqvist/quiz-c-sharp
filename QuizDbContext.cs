@@ -11,7 +11,7 @@ class QuizDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
         // options.UseInMemoryDatabase("databas");
-        options.UseNpgsql("databas");
+        options.UseNpgsql("Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=password;");
     }
 
 

@@ -3,6 +3,14 @@ using Microsoft.EntityFrameworkCore;
 
 class QuizManager
 {
+    public QuizManager()
+    {
+        using (var db = new QuizDbContext())
+        {
+            db.Database.EnsureCreated();
+        }
+    }
+
     public List<Quiz> quizzes = new List<Quiz>();
 
     public void CreateQuiz()
@@ -115,4 +123,5 @@ class QuizManager
             }
         }
     }
+
 }
